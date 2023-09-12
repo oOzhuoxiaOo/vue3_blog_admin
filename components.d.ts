@@ -7,7 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AdminHeader: typeof import('./src/components/layout/AdminHeader.vue')['default']
+    AdminMenu: typeof import('./src/components/layout/AdminMenu.vue')['default']
     LoginFrom: typeof import('./src/components/auth/LoginFrom.vue')['default']
+    RegisterFrom: typeof import('./src/components/auth/RegisterFrom.vue')['default']
+    ResetPasswordFrom: typeof import('./src/components/auth/ResetPasswordFrom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
