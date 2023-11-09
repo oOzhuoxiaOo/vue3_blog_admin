@@ -1,5 +1,5 @@
 import axios,{AxiosError} from "axios";
-
+import router from '@/router/index'
 import { ElMessage } from "element-plus";
 // 引入请求基础路径,因开发、生产模式而不同
 const baseUrl: string = import.meta.env.VITE_BASE_URL;
@@ -58,7 +58,8 @@ export const $http = async (config: object = {}) => {
                 // TODO:
                 // console.log('为啥没push到登录',dataRes);
                 // console.log('router无效?',router);
-                // router.push('/login');
+                // const router = useRouter()
+                router.push('/auth/login');
             } else if (dataRes.code == 403) {
                 errTitle = "Forbidden";
             } else if (dataRes.code == 404) {

@@ -25,6 +25,8 @@
 import {  ref } from "vue";
 import { loginApi } from "@/apis/login";
 import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
  import { checkAccount,checkPassword } from "@/hooks/utils/FormatCheck";
 
@@ -54,7 +56,11 @@ const login = async ()=> {
     }
 
     const resData = await loginApi(user.value);
+    console.log("resData:",resData)
+    // token保存本地
+    localStorage.setItem("token",resData.data.token)
     ElMessage.success("登录成功，跳转首页");
+    router.push("/")
     // TODO: 保存数据
     // TODO: 跳转首页
 }

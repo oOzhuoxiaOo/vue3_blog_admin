@@ -1,12 +1,8 @@
 <template>
     <div id="menu">
 
-        <el-menu 
-        active-text-color="#fff" background-color="rgb(43, 44, 67)" class="el-menu-vertical-demo"
-            :default-active="defaultActive" 
-            router
-            text-color="rgb(180,180,180)" 
-            >
+        <el-menu active-text-color="#fff" background-color="rgb(43, 44, 67)" class="el-menu-vertical-demo"
+            :default-active="defaultActive" router text-color="rgb(180,180,180)">
 
 
             <component :is="item?.children ? ElSubMenu : ElMenuItem" v-for="item in menuList" :key="item.id"
@@ -68,7 +64,7 @@ const menuList: MenuItem[] = [
     },
     {
         id: 2,
-        name: "用户",
+        name: "用户管理",
         index: '/admin/users',
         icon: User
     },
@@ -80,29 +76,52 @@ const menuList: MenuItem[] = [
         children: [
             {
                 id: 31,
-                name: '笔记列表',
-                index: '/admin/notes'
+                name: '写笔记',
+                index: '/admin/note-management/write'
             },
             {
                 id: 32,
-                name: '标签列表',
-                index: '/admin/tags'
+                name: '笔记列表',
+                index: '/admin/note-management/note'
             },
             {
                 id: 33,
+                name: '标签列表',
+                index: '/admin/note-management/tag'
+            },
+            {
+                id: 34,
                 name: '类型列表',
-                index: '/admin/type'
+                index: '/admin/note-management/type'
             },
         ]
     },
     {
         id: 4,
+        name: "评论管理",
+        index: '/admin/comment',
+        icon: Setting,
+    },
+    {
+        id: 5,
+        name: "个人中心",
+        index: '/admin/personalCenter',
+        icon: Setting
+    },
+    {
+        id: 6,
+        name: "友情链接",
+        index: '/admin/friends/list',
+        icon: Setting,
+    },
+    {
+        id: 7,
         name: "设置",
-        index: 'admin/setting',
+        index: '/admin/setting',
         icon: Setting
     },
 ]
 
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>

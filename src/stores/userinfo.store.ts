@@ -5,17 +5,22 @@ import { useRouter } from "vue-router";
 const router = useRouter()
 
 interface UserInfo {
-    avatar?: string
+    avatar?: string,
+    username: string
 }
 
 export const useUserInfoStore = defineStore('userinfo-store', () => {
 
     const state = {
         userInfo: ref<UserInfo>({
-            avatar:"https://th.bing.com/th?id=OIP.IT_BxrYEjAkrwMYlLcuvQwHaKD&w=214&h=291&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+            avatar:"https://th.bing.com/th?id=OIP.IT_BxrYEjAkrwMYlLcuvQwHaKD&w=214&h=291&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+            username:'xiana'
         })
     }
-
+    const setUserInfo = (params:UserInfo)=>{
+        state.userInfo.value.avatar = params.avatar
+        state.userInfo.value.username = params.username
+    }
     // 设置token为请求头，并存储本地
     const setAuth = (token: string):void => {
         httpInstance.defaults.headers.common.Authorization = token;
@@ -41,6 +46,7 @@ export const useUserInfoStore = defineStore('userinfo-store', () => {
         ...state,
         setAuth,
         removeAuth,
-        authFromLocal
+        authFromLocal,
+        setUserInfo
     }
 })

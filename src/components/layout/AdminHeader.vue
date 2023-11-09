@@ -19,7 +19,7 @@ import { useUserInfoStore } from "@/stores/userinfo.store";
 const userInfoStore = useUserInfoStore();
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 #header {
     display: flex;
     justify-content: space-between;
@@ -43,6 +43,9 @@ const userInfoStore = useUserInfoStore();
         font-size: 18px;
         .el-avatar {
             margin-right: 10px;
+        }
+        .title  {
+            color: #e73267;
         }
     }
 }
